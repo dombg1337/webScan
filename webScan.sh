@@ -3,18 +3,18 @@
 function printHelp {
     printBanner
     echo "Usage:"
-    echo "    -ip/--ip 192.168.1.1          | set the target ip                          | required"
-    echo "    -p/--port 443                 | set the target ip                          | required"
-    echo "    -d/--domain target.example    | set the target domain		       | optional"
-    echo "    --vuln                        | if set, triggers nmap vuln scripts         | optional"
-    echo "    -e/--interface tun0           | specify network interface, default: eth0   | optional"
-    echo "    -h/--help                     | display the help menu"
+    echo "|   -ip/--ip 192.168.1.1          | set the target ip                          | required"
+    echo "|   -p/--port 443                 | set the target ip                          | required"
+    echo "|   -d/--domain target.example    | set the target domain		       | optional"
+    echo "|   --vuln                        | if set, triggers nmap vuln scripts         | optional"
+    echo "|   -e/--interface tun0           | specify network interface, default: eth0   | optional"
+    echo "|   -h/--help                     | display the help menu"
     
     exit 1
 }
 
 function printBanner {
-	/usr/bin/base64 -d <<<"H4sIAAAAAAAAA5VQQQ7DMAi75xXclkpr+c1OSPQhefyMSdNFnbQOmjRg7BCKTOa5h8kXi+yJXEumTJmgBhdRirersgZk8I/iK31IH02wU2CITfZ13ZiKHunemVnE+h5KwnFKuiRJSjShxoZC9DGUDQnH2sFgNpjaJSUBcgjv42Qdw0BMXoKPU1Bcu+CmOKlUqFQqnV7dj0PuywQ3xolh1ubQUvzA8s0jcu8JrCeywSHTjoEkEKEOuNOJpfR9M8dYFOQfxuf/J33TWrylvAGWQbLG1wIAAA==" | /usr/bin/gunzip
+	/usr/bin/base64 -d <<<"H4sIAAAAAAAAA3VPywqDMBA8J18xtypo1v5MT4EVETyV3gpCPt7ZrRW1dR9Jdnb2EWAv+jlNcJZ4iAoVECeXH+q33DuRyjijb9vkEMzgF2JmRmhUI902Ziag9J6THI30B2g+Vdi1ZqW9BBWnmK/KXbMyJ7y4gCa1SHUF6A1RW6zE8/LbJ0II1fueutQ1GGaMr+cw1VfsP/ULZDqQqlsBAAA=" | /usr/bin/gunzip
 }
 
 # check if no argument was supplied and print help
@@ -106,7 +106,6 @@ sleep 2
 nmapCipherScanOutputFile=$resultDirectory"nmapCipherScanOutput"
 (/usr/bin/nmap -p$port $ip --script="ssl-enum-ciphers" -oA $nmapCipherScanOutputFile && printf "nmap cipher scan successful")
 printSeparator
-
 # 4. run certificate check if domain is set
 
 if [ $domain ]; then
@@ -117,6 +116,7 @@ if [ $domain ]; then
 	(/usr/bin/openssl s_client -showcerts -connect $domain":"$port -servername $domain <<< "Q" | /usr/bin/tee $certificateCheckOutputFile && printf "certs check successful")
 	printSeparator
 fi
+
 
 # 5. run nikto scan on domain or on ip and port if domain is not set
 
@@ -139,7 +139,7 @@ fi
 
 if [ $vuln ]; then
 	printf "Run nmap vuln scan on ip and port\n\n"
-	nmapVulnScanOutputFile=$resultDirectory"nmapVulnScanOutput"
+	nmapVulnScanOutputFile=$resultDirectory"nmapVulnScan"
 	printf "Command: /usr/bin/sudo /usr/bin/nmap -p$port --script="vuln" -oA $nmapVulnScanOUtputFile $ip\n\n" 	
 	
 	sleep 2
