@@ -112,7 +112,7 @@ if [ $domain ]; then
 	printf "Run certificate check\n\n"
 	printf "Command: /usr/bin/openssl s_client -showcerts -connect "$domain":"$port" -servername $domain\n\n"  
 	sleep 2
-	certificateCheckOutputFile=$resultDirectory"nmapServiceScan"
+	certificateCheckOutputFile=$resultDirectory"certificateCheckOutput"
 	(/usr/bin/openssl s_client -showcerts -connect $domain":"$port -servername $domain | /usr/bin/tee $certificateCheckOutputFile && printf "certs check successful")
 	printSeparator
 fi
@@ -120,7 +120,7 @@ fi
 
 # 5. run nikto scan on domain or on ip and port if domain is not set
 
-niktoScanOutputFile=$resultDirectory"niktoScan"
+niktoScanOutputFile=$resultDirectory"niktoScanOutput"
 printf "Run nikto scan on domain or otherwise ip and port\n\n"
 if [ $domain ]; then
 	printf "Command: /usr/bin/nikto -h $domain -o $niktoScanOutputFile -Format xml\n\n" 		
@@ -139,7 +139,7 @@ fi
 
 if [ $vuln ]; then
 	printf "Run nmap vuln scan on ip and port\n\n"
-	nmapVulnScanOutputFile=$resultDirectory"nmapVulnScan"
+	nmapVulnScanOutputFile=$resultDirectory"nmapVulnScanOutput"
 	printf "Command: /usr/bin/sudo /usr/bin/nmap -p$port --script="vuln" -oA $nmapVulnScanOUtputFile $ip\n\n" 	
 	
 	sleep 2
