@@ -17,6 +17,6 @@ Even though these are common steps, the tests performed barely touch the surface
 Output is stored in all possible formats (nikto in txt,xml).
 
 ## Help
-![image](https://user-images.githubusercontent.com/7427205/137287716-f8af3411-0f59-4cc0-a59d-5c2de77a70c9.png)
+![image](https://user-images.githubusercontent.com/7427205/137322622-d964e72e-2673-4a00-90d6-fe19dd6f6c72.png)
 
 Mind: Please don't grant users permanent sudo rights to this script, easy PrivEsc via Command Injection since I don't sanitize any input.
