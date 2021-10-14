@@ -14,6 +14,8 @@ Even though these are common steps, the tests performed barely touch the surface
 4. Run nikto scan on domain, or else on ip:port. 
 5. Optionally runs nmap vuln scripts (--scripts="vuln") as an additional scan.
 
+Output is stored in all possible formats (nikto in txt,xml).
+
 ## Help
 ![image](https://user-images.githubusercontent.com/7427205/137287716-f8af3411-0f59-4cc0-a59d-5c2de77a70c9.png)
 
