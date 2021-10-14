@@ -2,7 +2,9 @@
 
 ## Why should I use webScan?
 
-The script simply automates common and important steps in pen-testing a website to save time during an engagement. Even though these are common steps, the tests performed barely touch the surface of web-app-security audits which requires a lot of manual testing. It is recommended to follow guides like the one from OWASP: https://owasp.org/www-project-web-security-testing-guide/v42/ and to supplement with additional resources.
+The script simply automates common and important steps in pen-testing a website to save time during an engagement. 
+
+Even though these are common steps, the tests performed barely touch the surface of web-app-security audits which requires a lot of manual testing. It is recommended to follow guides like the one from OWASP: https://owasp.org/www-project-web-security-testing-guide/v42/ and to supplement it with additional resources.
 
 ## Execution
 
