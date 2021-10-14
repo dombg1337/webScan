@@ -106,17 +106,17 @@ sleep 2
 nmapCipherScanOutputFile=$resultDirectory"nmapCipherScanOutput"
 (/usr/bin/nmap -p$port $ip --script="ssl-enum-ciphers" -oA $nmapCipherScanOutputFile && printf "nmap cipher scan successful")
 printSeparator
+
 # 4. run certificate check if domain is set
 
 if [ $domain ]; then
 	printf "Run certificate check\n\n"
-	printf "Command: /usr/bin/openssl s_client -showcerts -connect "$domain":"$port" -servername $domain\n\n"  
+	printf "Command: /usr/bin/openssl s_client -showcerts -connect "$domain":"$port" -servername $domain <<< "Q"\n\n"  
 	sleep 2
 	certificateCheckOutputFile=$resultDirectory"certificateCheckOutput"
-	(/usr/bin/openssl s_client -showcerts -connect $domain":"$port -servername $domain | /usr/bin/tee $certificateCheckOutputFile && printf "certs check successful")
+	(/usr/bin/openssl s_client -showcerts -connect $domain":"$port -servername $domain <<< "Q" | /usr/bin/tee $certificateCheckOutputFile && printf "certs check successful")
 	printSeparator
 fi
-
 
 # 5. run nikto scan on domain or on ip and port if domain is not set
 
