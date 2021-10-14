@@ -1,6 +1,6 @@
 # webScan (c) dombg
 
-## Why should I use webScan?
+## Description
 
 The script simply automates common and important steps in pen-testing a website to save time during an engagement. 
 
