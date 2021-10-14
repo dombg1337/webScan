@@ -16,3 +16,5 @@ Even though these are common steps, the tests performed barely touch the surface
 
 ## Help
 ![image](https://user-images.githubusercontent.com/7427205/137287716-f8af3411-0f59-4cc0-a59d-5c2de77a70c9.png)
+
+Mind: Please don't grant users permanent sudo rights to this script, easy PrivEsc via Command Injection since I don't sanitize any input.
