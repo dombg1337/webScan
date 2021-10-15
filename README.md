@@ -20,3 +20,14 @@ Output is stored in all possible formats (nikto in txt,xml).
 ![image](https://user-images.githubusercontent.com/7427205/137322622-d964e72e-2673-4a00-90d6-fe19dd6f6c72.png)
 
 Mind: Please don't grant users permanent sudo rights to this script, easy PrivEsc via Command Injection since I don't sanitize any input.
+
+### Usage examples
+
+```
+sudo ./webScan --ip 192.168.1.2 --port 443
+sudo ./webScan --ip 192.168.1.2 --port 443 --domain foo.bar --vuln
+```
+
+## Disclaimer
+
+webScan is written for web-app assessments where the scanning is explicitly allowed by the owner of the target system, please use it responsively. I'm not responsible for any misuse of this tool.
