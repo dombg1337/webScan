@@ -44,15 +44,15 @@ do
 	case "$1" in
 		-ip|--ip)
 			ip="$2"
-			shift #pop the first parameter in the series, making what used to be $2, now be $1.
+			shift 2 #shift parameters to the left, making what used to be $3, now be $1.
 			;;
 		-p|--port)
 			port="$2"
-			shift
+			shift 2
 			;;
 		-d|--domain)
 			domain="$2"
-			shift
+			shift 2
 			;;
 		--vuln)
 			vuln=1
@@ -60,13 +60,12 @@ do
 			;;
 		-e|--interface)
 			interface="$2"
-			shift
+			shift 2
 			;;
 		-h|--help)
 			printHelp
 			;;
 	esac
-	shift
 done
 
 # check if required parameters were !supplied: print help menu and exit
