@@ -17,7 +17,6 @@ function printBanner {
 	/usr/bin/base64 -d <<<"H4sIAAAAAAAAA3VPywqDMBA8J18xtypo1v5MT4EVETyV3gpCPt7ZrRW1dR9Jdnb2EWAv+jlNcJZ4iAoVECeXH+q33DuRyjijb9vkEMzgF2JmRmhUI902Ziag9J6THI30B2g+Vdi1ZqW9BBWnmK/KXbMyJ7y4gCa1SHUF6A1RW6zE8/LbJ0II1fueutQ1GGaMr+cw1VfsP/ULZDqQqlsBAAA=" | /usr/bin/gunzip
 }
 
-# check if no argument was supplied and print help
 
 function printSeparator {
 	printf "\n"
@@ -25,6 +24,7 @@ function printSeparator {
 	printf "\n"
 }
 
+# check if no argument was supplied and print help
 if [ -z "$1" ]; then
     echo "No argument supplied"
     printHelp
@@ -139,10 +139,10 @@ fi
 if [ $vuln ]; then
 	printf "Run nmap vuln scan on ip and port\n\n"
 	nmapVulnScanOutputFile=$resultDirectory"nmapVulnScan"
-	printf "Command: /usr/bin/sudo /usr/bin/nmap -p$port --script="vuln" -oA $nmapVulnScanOUtputFile $ip\n\n" 	
+	printf "Command: /usr/bin/sudo /usr/bin/nmap -p$port --script="vuln" -oA $nmapVulnScanOutputFile $ip\n\n" 	
 	
 	sleep 2
-	(/usr/bin/sudo /usr/bin/nmap -p$port --script="vuln" -oA $nmapVulnScanOUtputFile $ip && printf "vuln Scan successful")
+	(/usr/bin/sudo /usr/bin/nmap -p$port --script="vuln" -oA $nmapVulnScanOutputFile $ip && printf "vuln Scan successful")
 	printSeparator
 fi
 
