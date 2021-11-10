@@ -35,4 +35,4 @@ sudo ./webScan --ip 192.168.1.2 --port 443 --domain foo.bar --vuln
 
 ## Disclaimer
 
-webScan is written for web-app assessments where the scanning is explicitly allowed by the owner of the target system, please use it responsively. I'm not responsible for any misuse of this tool.
+webScan is written for webserver assessments where the scanning is explicitly allowed by the owner of the target system, please use it responsively. I'm not responsible for any misuse of this tool.
